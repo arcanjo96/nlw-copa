@@ -28,6 +28,10 @@ async function poolsRoutes() {
         code,
       }
     });
+
+    return reply.status(201).send({
+      code
+    });
   });
 }
 

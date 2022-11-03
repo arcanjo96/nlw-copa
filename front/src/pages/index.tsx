@@ -102,16 +102,15 @@ export default function Home(props: HomeProps) {
   )
 }
 
-export const getServerSideProps = async () => {
+export async function getStaticProps() {
   const [poolsResponse, guessesResponse, usersResponse] = await Promise.all([
     api.get('pools'),
     api.get('guesses'),
     api.get('users'),
   ]);
-  const response = fetch('http://localhost:3333/pools');
-  const data = await (await response).json();
 
   return {
+    revalidate: 30,
     props: {
       poolsCount: poolsResponse.data.count,
       guessesCount: guessesResponse.data.count,
