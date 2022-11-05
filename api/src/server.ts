@@ -6,6 +6,7 @@ import { authRoutes } from './routes/auth';
 import { guessesRoutes } from './routes/guesses';
 import { poolsRoutes } from './routes/pools';
 import { usersRoutes } from './routes/users';
+import { gamesRoutes } from './routes/games';
 
 async function bootstrap() {
   await fastify.register(cors, {
@@ -27,6 +28,9 @@ async function bootstrap() {
   });
   await fastify.register(authRoutes, {
     prefix: 'auth'
+  });
+  await fastify.register(gamesRoutes, {
+    prefix: 'games'
   });
 
   await fastify.listen({

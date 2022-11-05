@@ -4,7 +4,7 @@ import { authenticate } from "../plugins/authenticate";
 import { prisma } from "../prisma";
 
 async function guessesRoutes() {
-  fastify.get('/', async () => {
+  fastify.get('/guesses', async () => {
     const guesses = await prisma.guess.findMany();
 
     return {
@@ -56,6 +56,7 @@ async function guessesRoutes() {
         message: "You already sent a guess to this game on this pool."
       });
     }
+
 
     const game = await prisma.game.findUnique({
       where: {

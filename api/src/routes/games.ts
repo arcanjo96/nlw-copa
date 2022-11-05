@@ -14,7 +14,7 @@ export async function gamesRoutes(fastity: FastifyInstance) {
       return { user: request.user };
     });
 
-  fastity.post('/pools/:id/games', {
+  fastity.get('/pools/:id/games', {
     onRequest: [authenticate]
   },
     async (request) => {
