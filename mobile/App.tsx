@@ -21,7 +21,7 @@ export default function App() {
           translucent
         />
 
-        {fonstLoaded ? <Pools /> : <Loading />}
+        {fonstLoaded ? <SignIn /> : <Loading />}
       </NativeBaseProvider>
     </AuthContextProvider>
   );
