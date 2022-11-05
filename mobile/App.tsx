@@ -3,11 +3,8 @@ import { useFonts, Roboto_400Regular, Roboto_500Medium, Roboto_700Bold } from '@
 
 import { THEME } from './src/styles/theme';
 import { Loading } from './src/components/Loading';
-import { SignIn } from './src/screens/SignIn';
 import { AuthContextProvider } from './src/contexts/AuthContext';
-import { New } from './src/screens/New';
-import { Find } from './src/screens/Find';
-import { Pools } from './src/screens/Pools';
+import { Routes } from './src/routes';
 
 export default function App() {
   const [fonstLoaded] = useFonts({ Roboto_400Regular, Roboto_500Medium, Roboto_700Bold });
@@ -21,7 +18,7 @@ export default function App() {
           translucent
         />
 
-        {fonstLoaded ? <SignIn /> : <Loading />}
+        {fonstLoaded ? <Routes /> : <Loading />}
       </NativeBaseProvider>
     </AuthContextProvider>
   );
